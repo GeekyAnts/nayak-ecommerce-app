@@ -37,8 +37,34 @@ export default function Address(props: any) {
     },
   ];
   return (
-    <Box bg="red.500" flex={1}>
+    <Box bg="white">
       <HStack space={5} alignItems="center" mt={10} justifyContent="center">
+        <Box
+          py="4"
+          px="4"
+          _light={{ bg: "white" }}
+          _dark={{}}
+          width={{ lg: "20%" }}
+          mr="3"
+          shadow="2"
+          maxHeight={12}
+          justifyContent="center"
+          borderRightColor="#FD2578"
+          borderRightWidth={2}
+        >
+          <HStack justifyContent="space-between">
+            {" "}
+            <Text
+              _light={{ color: "#FC2779" }}
+              _dark={{}}
+              fontWeight="semibold"
+              fontSize="md"
+            >
+              New Address
+            </Text>
+            {/* <Divider orientation="vertical" width="2" color="#FC2779"></Divider> */}
+          </HStack>
+        </Box>
         <Box bg="white" shadow="4" width="35%" height="100%" mt={8} px={4}>
           <Text fontSize="md" fontWeight="semibold" mt={4}>
             New Address
@@ -180,7 +206,7 @@ export default function Address(props: any) {
             </Button>
           </VStack>
         </Box>
-        <Box bg="white" width="30%" height="60%">
+        <Box bg="white" width="30%" height="60%" shadow={3}>
           <HStack alignItems="center" justifyContent="space-between" px={4}>
             <Text color="#FFA838" fontSize="sm" fontWeight="medium">
               1 Items in your Bag
