@@ -7,6 +7,7 @@ import {
   HStack,
   Icon,
   Image,
+  Pressable,
   Text,
   useColorModeValue,
   VStack,
@@ -16,12 +17,14 @@ import { EvilIcons } from "@expo/vector-icons";
 
 export default function Address(props: any) {
   const [text, setText] = useState("");
+  const [showDetails, setShowDetails] = useState(false);
+  const [expandTotal, setExpandToatal] = useState(false);
   const price = [
     {
       itemNumber: 0,
       modalVisible: false,
       text: "Sub Total",
-      Amount: "₹799",
+      Amount: "₹1199",
     },
     {
       itemNumber: 1,
@@ -34,6 +37,12 @@ export default function Address(props: any) {
       modalVisible: false,
       text: "Discount",
       Amount: "- ₹0",
+    },
+    {
+      itemNumber: 2,
+      modalVisible: false,
+      text: "Use Reward Points (2000)",
+      Amount: "APPLY",
     },
   ];
   return (
@@ -209,77 +218,109 @@ export default function Address(props: any) {
             </Button>
           </VStack>
         </Box>
-        <Box bg="white" width="30%" height="60%" shadow={3}>
+        <Box bg="white" width="30%" height="80%" shadow={3}>
           <HStack alignItems="center" justifyContent="space-between" px={4}>
             <Text color="#FFA838" fontSize="sm" fontWeight="medium">
               1 Items in your Bag
             </Text>
-            <HStack alignItems="center">
-              <Text color="#FD2578" fontSize="sm" fontWeight="medium">
-                DETAILS
-              </Text>
-              <Icon as={EvilIcons} name="chevron-down" color="#FD2578" />
-            </HStack>
-          </HStack>
-          <HStack bg="coolGray.100" px={4} space={3} mt={3} py={3}>
-            <Image
-              source={{
-                uri: "https://wallpaperaccess.com/full/317501.jpg",
+            <Pressable
+              onPress={() => {
+                setShowDetails(!showDetails);
               }}
-              alt="Alternate Text"
-              height={20}
-              width={16}
-            />
-
-            <VStack space={1}>
-              <Text>L'Oreal Paris Infallible Full Wear Concealer - 312</Text>
-              <Text>10ml</Text>
-              <HStack space={1} alignItems="center">
-                <Center bgColor="#C48F6A" p={2} rounded="sm" />
-                <Text>312</Text>
+            >
+              <HStack alignItems="center">
+                <Text color="#FD2578" fontSize="sm" fontWeight="medium">
+                  {showDetails ? "Edit" : "Details"}
+                </Text>
+                <Icon
+                  as={EvilIcons}
+                  name={showDetails ? "chevron-up" : "chevron-down"}
+                  color="#FD2578"
+                />
               </HStack>
-            </VStack>
+            </Pressable>
           </HStack>
-          <VStack px={4} space={3} mt={2}>
-            {price.map((item, index) => {
-              return (
-                <HStack
-                  key={index}
-                  alignItems="center"
-                  justifyContent="space-between"
-                >
-                  {item.text == "Discount" ? (
-                    <Text color="#4EB6AC" fontSize="md" fontWeight="medium">
-                      {item.text}
-                    </Text>
-                  ) : (
-                    <Text
-                      fontSize="md"
-                      fontWeight="medium"
-                      color="coolGray.800"
-                    >
-                      {item.text}
-                    </Text>
-                  )}
+          {showDetails ? (
+            <Box bg="coolGray.100">
+              <HStack bg="white" mx={4} space={3} my={3} p={2}>
+                <Image
+                  source={{
+                    uri: "https://images-static.nykaa.com/media/catalog/product/tr:h-800,w-800,cm-pad_resize/6/_/6_255.jpg",
+                  }}
+                  alt="Alternate Text"
+                  height={20}
+                  width={16}
+                />
 
-                  {item.Amount == "Free" && "- ₹0" ? (
-                    <Text color="#4EB6AC" fontSize="md" fontWeight="medium">
-                      {item.Amount}
-                    </Text>
-                  ) : (
-                    <Text
-                      fontSize="md"
-                      fontWeight="medium"
-                      color="coolGray.800"
-                    >
-                      {item.Amount}
-                    </Text>
-                  )}
-                </HStack>
-              );
-            })}
-            <Divider />
-          </VStack>
+                <VStack space={1}>
+                  <Text>Nykaa SKINRX AM/PM Duo for Acne Free Skin</Text>
+                  <Text>2pcs</Text>
+                  <Divider />
+
+                  <HStack
+                    space={1}
+                    alignItems="center"
+                    justifyContent="space-between"
+                  >
+                    <Text>Qty:1</Text>
+                    <HStack alignItems="center" space={1}>
+                      <Text fontSize="2xs" strikeThrough>
+                        ₹1598
+                      </Text>
+                      <Text fontSize="lg">₹1199</Text>
+                    </HStack>
+                  </HStack>
+                </VStack>
+              </HStack>
+            </Box>
+          ) : null}
+          {expandTotal ? (
+            <VStack px={4} space={3} mt={2}>
+              {price.map((item, index) => {
+                return (
+                  <HStack
+                    key={index}
+                    alignItems="center"
+                    justifyContent="space-between"
+                  >
+                    {item.text == "Discount" ? (
+                      <Text color="#4EB6AC" fontSize="sm" fontWeight="medium">
+                        {item.text}
+                      </Text>
+                    ) : (
+                      <Text
+                        fontSize="sm"
+                        fontWeight="medium"
+                        color="coolGray.800"
+                      >
+                        {item.text}
+                      </Text>
+                    )}
+
+                    {item.Amount == "Free" || item.Amount == "- ₹0" ? (
+                      <Text color="#4EB6AC" fontSize="sm" fontWeight="medium">
+                        {item.Amount}
+                      </Text>
+                    ) : item.Amount == "APPLY" ? (
+                      <Text fontSize="sm" fontWeight="medium" color="#fc2779">
+                        {item.Amount}
+                      </Text>
+                    ) : (
+                      <Text
+                        fontSize="sm"
+                        fontWeight="medium"
+                        color="coolGray.800"
+                      >
+                        {item.Amount}
+                      </Text>
+                    )}
+                  </HStack>
+                );
+              })}
+              <Divider />
+            </VStack>
+          ) : null}
+
           <HStack
             alignItems="center"
             justifyContent="space-between"
@@ -289,9 +330,22 @@ export default function Address(props: any) {
             <Text color="coolGray.800" fontWeight="medium" fontSize="md">
               Grand Total
             </Text>
-            <Text color="coolGray.800" fontWeight="medium" fontSize="md">
-              ₹799
-            </Text>
+            <Pressable
+              onPress={() => {
+                setExpandToatal(!expandTotal);
+              }}
+            >
+              <HStack alignItems="center">
+                <Text color="coolGray.800" fontWeight="medium" fontSize="md">
+                  ₹1199
+                </Text>
+                <Icon
+                  as={EvilIcons}
+                  name={expandTotal ? "chevron-up" : "chevron-down"}
+                  color="#FD2578"
+                />
+              </HStack>
+            </Pressable>
           </HStack>
           <Divider mt={1} />
         </Box>
