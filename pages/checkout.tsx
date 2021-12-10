@@ -9,8 +9,10 @@ import {
   Text,
   VStack,
   Image,
+  useColorModeValue,
 } from "native-base";
 import React, { useState } from "react";
+import FloatingLabelInput from "./components/FloatingInput";
 import Header from "./components/Header";
 
 export default function Checkout() {
@@ -49,6 +51,8 @@ export default function Checkout() {
           shadow="2"
           maxHeight={12}
           justifyContent="center"
+          borderRightColor="#FD2578"
+          borderRightWidth={2}
         >
           <HStack justifyContent="space-between">
             {" "}
@@ -60,7 +64,6 @@ export default function Checkout() {
             >
               Login/Register
             </Text>
-            {/* <Divider orientation="vertical" width="2" color="#FC2779"></Divider> */}
           </HStack>
         </Box>
         <VStack
@@ -83,13 +86,18 @@ export default function Checkout() {
           </Text>
           <Divider></Divider>
           <Box>
-            <HStack pt={5}>
+            <HStack pt={5} space={2}>
               <Icon size="6" as={Feather} name="check" color="#5CD185" />
-              <Text _light={{ color: "#3F414D" }} _dark={{}} fontSize="sm">
+              <Text
+                _light={{ color: "#3F414D" }}
+                _dark={{}}
+                fontSize="sm"
+                fontWeight="normal"
+              >
                 Get Reward Points on new registration
               </Text>
             </HStack>
-            <HStack pt={1}>
+            <HStack pt={1} space={2}>
               <Icon size="6" as={Feather} name="check" color="#5CD185" />
               <Text _light={{ color: "#3F414D" }} _dark={{}} fontSize="sm">
                 Get Reward Points on new registration
@@ -99,7 +107,7 @@ export default function Checkout() {
               Continue with Social login
             </Text>
           </Box>
-          <HStack pt={2}>
+          <HStack pt={2} pb={5}>
             <Button
               size="lg"
               _light={{ bg: "white" }}
@@ -109,6 +117,7 @@ export default function Checkout() {
                 <Icon as={AntDesign} name="facebook-square" size="sm" />
               }
               mr={2}
+              borderColor="coolGray.200"
             >
               <Text
                 fontSize="sm"
@@ -126,6 +135,7 @@ export default function Checkout() {
               _light={{ bg: "white" }}
               _dark={{}}
               variant="outline"
+              borderColor="coolGray.200"
               leftIcon={
                 <Icon as={AntDesign} name="google" size="sm" color="" />
               }
@@ -141,6 +151,27 @@ export default function Checkout() {
               </Text>
             </Button>
           </HStack>
+
+          <FloatingLabelInput
+            py="3"
+            isRequired
+            label="Or Enter Email-Id Or Phone Number"
+            // labelColor="#FC2778"
+            labelBGColor={useColorModeValue("#fff", "#1f2937")}
+            borderRadius="sm"
+            defaultValue={text}
+            onChangeText={(txt: any) => setText(txt)}
+            _text={{
+              fontSize: "lg",
+              fontWeight: "medium",
+            }}
+            _dark={{
+              borderColor: "coolGray.700",
+            }}
+            _light={{
+              borderColor: "coolGray.300",
+            }}
+          />
           <Button
             size="lg"
             _light={{ bg: "#FC2778" }}
@@ -181,6 +212,8 @@ export default function Checkout() {
             _light={{ bg: "white" }}
             _dark={{}}
             variant="outline"
+            borderColor="#FC2778"
+            py="3"
             endIcon={
               <Icon as={AntDesign} name="right" size="xs" color="#FC2778" />
             }
@@ -191,7 +224,7 @@ export default function Checkout() {
               fontSize="sm"
               _light={{ color: "#FC2778" }}
               _dark={{}}
-              fontWeight="medium"
+              fontWeight="semibold"
               letterSpacing={0.8}
             >
               {" "}
