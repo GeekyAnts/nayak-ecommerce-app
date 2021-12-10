@@ -1,10 +1,43 @@
-import { AntDesign, Feather } from "@expo/vector-icons";
-import { Box, Button, Divider, HStack, Icon, Text, VStack } from "native-base";
-import React from "react";
+import { AntDesign, EvilIcons, Feather } from "@expo/vector-icons";
+import {
+  Box,
+  Button,
+  Center,
+  Divider,
+  HStack,
+  Icon,
+  Text,
+  VStack,
+  Image,
+} from "native-base";
+import React, { useState } from "react";
+import Header from "./components/Header";
 
 export default function Checkout() {
+  const [text, setText] = useState("");
+  const price = [
+    {
+      itemNumber: 0,
+      modalVisible: false,
+      text: "Sub Total",
+      Amount: "₹799",
+    },
+    {
+      itemNumber: 1,
+      modalVisible: false,
+      text: "Shipping Charge",
+      Amount: "Free",
+    },
+    {
+      itemNumber: 2,
+      modalVisible: false,
+      text: "Discount",
+      Amount: "- ₹0",
+    },
+  ];
   return (
     <Box flexGrow={1} _light={{ bg: "coolGray.100" }} _dark={{}}>
+      <Header></Header>
       <HStack>
         <Box
           py="4"
@@ -36,6 +69,7 @@ export default function Checkout() {
           width={{ lg: "30%" }}
           shadow="2"
           px={5}
+          mr="3"
         >
           <Text
             _light={{ color: "#3F414D" }}
@@ -165,8 +199,92 @@ export default function Checkout() {
             </Text>
           </Button>
         </VStack>
-        <Box></Box>
-        <Box></Box>
+        <Box bg="white" width="30%" height="80%" shadow={3}>
+          <HStack alignItems="center" justifyContent="space-between" px={4}>
+            <Text color="#FFA838" fontSize="sm" fontWeight="medium">
+              1 Items in your Bag
+            </Text>
+            <HStack alignItems="center">
+              <Text color="#FD2578" fontSize="sm" fontWeight="medium">
+                EDIT
+              </Text>
+              <Icon as={EvilIcons} name="chevron-down" color="#FD2578" />
+            </HStack>
+          </HStack>
+          <HStack bg="coolGray.100" px={4} space={3} mt={3} py={3}>
+            <Image
+              source={{
+                uri: "https://wallpaperaccess.com/full/317501.jpg",
+              }}
+              alt="Alternate Text"
+              height={20}
+              width={16}
+            />
+
+            <VStack space={1}>
+              <Text>L'Oreal Paris Infallible Full Wear Concealer - 312</Text>
+              <Text>10ml</Text>
+              <HStack space={1} alignItems="center">
+                <Center bgColor="#C48F6A" p={2} rounded="sm" />
+                <Text>312</Text>
+              </HStack>
+            </VStack>
+          </HStack>
+          <VStack px={4} space={3} mt={2}>
+            {price.map((item, index) => {
+              return (
+                <HStack
+                  key={index}
+                  alignItems="center"
+                  justifyContent="space-between"
+                >
+                  {item.text == "Discount" ? (
+                    <Text color="#4EB6AC" fontSize="md" fontWeight="medium">
+                      {item.text}
+                    </Text>
+                  ) : (
+                    <Text
+                      fontSize="md"
+                      fontWeight="medium"
+                      color="coolGray.800"
+                    >
+                      {item.text}
+                    </Text>
+                  )}
+
+                  {item.Amount == "Free" && "- ₹0" ? (
+                    <Text color="#4EB6AC" fontSize="md" fontWeight="medium">
+                      {item.Amount}
+                    </Text>
+                  ) : (
+                    <Text
+                      fontSize="md"
+                      fontWeight="medium"
+                      color="coolGray.800"
+                    >
+                      {item.Amount}
+                    </Text>
+                  )}
+                </HStack>
+              );
+            })}
+            <Divider />
+          </VStack>
+          <HStack
+            alignItems="center"
+            justifyContent="space-between"
+            px={4}
+            mt={2}
+          >
+            <Text color="coolGray.800" fontWeight="medium" fontSize="md">
+              Grand Total
+            </Text>
+            <Text color="coolGray.800" fontWeight="medium" fontSize="md">
+              ₹799
+            </Text>
+          </HStack>
+          <Divider mt={1} />
+        </Box>
       </HStack>
     </Box>
   );
