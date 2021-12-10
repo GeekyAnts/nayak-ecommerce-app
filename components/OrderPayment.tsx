@@ -11,37 +11,31 @@ import {
 } from "native-base";
 import { MaterialIcons, Octicons } from "@expo/vector-icons";
 
+const PAYMENT_VENDORS = [
+  "UPI",
+  "Gift Card",
+  "GooglePay",
+  "Net Banking",
+  "Mobile Wallets",
+  "Cash on Delivery",
+  "Credit/Debit Card",
+];
+
 export default function Payment(props: any) {
-  const reasonList = [
-    "Credit/Debit Card",
-    "UPI",
-    "GooglePay",
-    "Net Banking",
-    "Mobile Wallets",
-    "Cash on Delivery",
-    "Gift Card",
-  ];
   return (
-    <Box flexGrow={1} w="100%" h="100%" bg="coolGray.100" p="5">
-      <HStack w="100%" p="4" space={5} justifyContent="center">
-        <VStack
-          w="20%"
-          borderWidth="1"
-          borderColor="coolGray.300"
-          bg="white"
-          h="100%"
-        >
-          {reasonList.map((item, index) => {
+    <Box bg="coolGray.100" p="5">
+      <HStack p="4" space={5} justifyContent="center">
+        <VStack w="20%" bg="white" borderWidth="1" borderColor="coolGray.300">
+          {PAYMENT_VENDORS.map((item, index) => {
             return (
               <VStack alignItems="flex-start" key={index} pl="2">
                 {item == "Credit/Debit Card" ? (
                   <HStack justifyContent="space-between" w="100%" pl="2">
                     <Text
-                      my={{ base: "3.5", md: 3 }}
+                      my="3"
                       _dark={{
-                        bg: { base: "coolGray.800", md: "coolGray.900" },
-
                         color: "coolGray.50",
+                        bg: { base: "coolGray.800", md: "coolGray.900" },
                       }}
                       _light={{
                         color: "#FC2778",
@@ -56,11 +50,11 @@ export default function Payment(props: any) {
                 ) : (
                   <HStack pl="2">
                     <Text
-                      my={{ base: "3.5", md: 3 }}
+                      my="3"
                       _dark={{
-                        bg: { base: "coolGray.800", md: "coolGray.900" },
                         fontSize: "md",
                         color: "coolGray.50",
+                        bg: { base: "coolGray.800", md: "coolGray.900" },
                       }}
                       _light={{
                         fontSize: "md",
@@ -71,11 +65,11 @@ export default function Payment(props: any) {
                     </Text>
                   </HStack>
                 )}
-                {index == reasonList.length - 1 ? null : (
+                {index == PAYMENT_VENDORS.length - 1 ? null : (
                   <Divider
+                    width="100%"
                     _light={{ bg: "coolGray.200" }}
                     _dark={{ bg: "coolGray.400" }}
-                    width="100%"
                   />
                 )}
               </VStack>
@@ -83,19 +77,17 @@ export default function Payment(props: any) {
           })}
         </VStack>
         <VStack
-          borderWidth="1"
-          borderColor="coolGray.300"
-          h="80%"
+          px="4"
           w="35%"
           bg="white"
-          px="4"
+          borderWidth="1"
+          borderColor="coolGray.300"
         >
           <Text
-            my={{ base: "3.5", md: 3 }}
+            my="3"
             _dark={{
-              bg: { base: "coolGray.800", md: "coolGray.900" },
-
               color: "coolGray.50",
+              bg: { base: "coolGray.800", md: "coolGray.900" },
             }}
             _light={{
               color: "coolGray.800",
@@ -106,29 +98,28 @@ export default function Payment(props: any) {
             Credit/Debit Card
           </Text>
           <Divider
+            width="100%"
             _light={{ bg: "coolGray.400" }}
             _dark={{ bg: "coolGray.400" }}
-            width="100%"
           />
           <Input
-            placeholder="Card Number"
+            mt="8"
             fontSize="sm"
             borderWidth="0"
-            mt="8"
             fontWeight="semibold"
+            placeholder="Card Number"
           />
           <Divider
+            width="100%"
             _light={{ bg: "coolGray.400" }}
             _dark={{ bg: "coolGray.400" }}
-            width="100%"
           />
           <Text
-            mt={{ base: "3.5", md: 4 }}
+            mt="10"
             ml="2"
             _dark={{
-              bg: { base: "coolGray.800", md: "coolGray.900" },
-
               color: "coolGray.50",
+              bg: { base: "coolGray.800", md: "coolGray.900" },
             }}
             _light={{
               color: "coolGray.400",
@@ -138,7 +129,7 @@ export default function Payment(props: any) {
           >
             Expiry
           </Text>
-          <HStack space="4" alignItems="center">
+          <HStack mt="2" space="4" alignItems="center">
             <VStack w="30%">
               <HStack alignItems="center">
                 <Input
@@ -158,9 +149,9 @@ export default function Payment(props: any) {
                 />
               </HStack>
               <Divider
+                width="100%"
                 _light={{ bg: "coolGray.200" }}
                 _dark={{ bg: "coolGray.400" }}
-                width="100%"
               />
             </VStack>
             <VStack w="15%">
@@ -171,41 +162,38 @@ export default function Payment(props: any) {
                 borderWidth="0"
               />
               <Divider
+                width="100%"
                 _light={{ bg: "coolGray.200" }}
                 _dark={{ bg: "coolGray.400" }}
-                width="100%"
               />
             </VStack>
-
-            <HStack flex="1" alignItems="center">
+            <HStack space="3" alignItems="center">
               <Icon
-                ml="0.5"
+                size="10"
                 as={Octicons}
                 name="credit-card"
-                size="10"
                 _light={{ color: "coolGray.500" }}
                 _dark={{ color: "coolGray.500" }}
               />
               <Text
+                w="50%"
                 _dark={{
-                  bg: { base: "coolGray.800", md: "coolGray.900" },
-
                   color: "coolGray.50",
+                  bg: { base: "coolGray.800", md: "coolGray.900" },
                 }}
                 _light={{
                   color: "coolGray.500",
                 }}
                 fontSize="sm"
-                ml="4"
               >
                 Last 3 Digits at the back of the Card
               </Text>
             </HStack>
           </HStack>
           <Button
-            mt="8"
-            w="100%"
             py="3"
+            mb="4"
+            mt="auto"
             _dark={{
               bg: "primary.700",
               _pressed: { bg: "primary.500" },
@@ -232,24 +220,17 @@ export default function Payment(props: any) {
             </HStack>
           </Button>
         </VStack>
-        <VStack
-          borderWidth="1"
-          borderColor="coolGray.300"
-          h="100%"
-          w="26%"
-          bg="white"
-        >
+        <VStack w="26%" bg="white" borderWidth="1" borderColor="coolGray.300">
           <HStack
-            justifyContent="space-between"
-            alignItems="center"
-            my={{ base: "3.5", md: 3 }}
+            my="3"
             px="4"
+            alignItems="center"
+            justifyContent="space-between"
           >
             <Text
               _dark={{
-                bg: { base: "coolGray.800", md: "coolGray.900" },
-
                 color: "coolGray.50",
+                bg: { base: "coolGray.800", md: "coolGray.900" },
               }}
               _light={{
                 color: "amber.500",
@@ -262,9 +243,8 @@ export default function Payment(props: any) {
             <HStack alignItems="center">
               <Text
                 _dark={{
-                  bg: { base: "coolGray.800", md: "coolGray.900" },
-
                   color: "coolGray.50",
+                  bg: { base: "coolGray.800", md: "coolGray.900" },
                 }}
                 _light={{
                   color: "#FC2778",
@@ -289,11 +269,7 @@ export default function Payment(props: any) {
             _dark={{ bg: "coolGray.400" }}
             width="100%"
           />
-          <HStack
-            justifyContent="space-between"
-            my={{ base: "2.5", md: 3 }}
-            px="4"
-          >
+          <HStack justifyContent="space-between" my="3" px="4">
             <Text
               _dark={{
                 bg: { base: "coolGray.800", md: "coolGray.900" },
@@ -323,11 +299,7 @@ export default function Payment(props: any) {
               ₹799
             </Text>
           </HStack>
-          <HStack
-            justifyContent="space-between"
-            my={{ base: "2.5", md: 3 }}
-            px="4"
-          >
+          <HStack my="3" px="4" justifyContent="space-between">
             <Text
               _dark={{
                 bg: { base: "coolGray.800", md: "coolGray.900" },
@@ -344,9 +316,8 @@ export default function Payment(props: any) {
             </Text>
             <Text
               _dark={{
-                bg: { base: "coolGray.800", md: "coolGray.900" },
-
                 color: "coolGray.50",
+                bg: { base: "coolGray.800", md: "coolGray.900" },
               }}
               _light={{
                 color: "emerald.400",
@@ -357,11 +328,7 @@ export default function Payment(props: any) {
               Free
             </Text>
           </HStack>
-          <HStack
-            justifyContent="space-between"
-            my={{ base: "2.5", md: 3 }}
-            px="4"
-          >
+          <HStack my="3" px="4" justifyContent="space-between">
             <Text
               _dark={{
                 bg: { base: "coolGray.800", md: "coolGray.900" },
@@ -391,7 +358,6 @@ export default function Payment(props: any) {
               - ₹0
             </Text>
           </HStack>
-
           <Divider
             _light={{ bg: "coolGray.200" }}
             _dark={{ bg: "coolGray.400" }}
@@ -444,94 +410,85 @@ export default function Payment(props: any) {
             </HStack>
           </HStack>
           <Divider
+            width="100%"
             _light={{ bg: "coolGray.200" }}
             _dark={{ bg: "coolGray.400" }}
-            width="100%"
           />
-          <HStack
-            justifyContent="space-between"
-            mt={{ base: "3.5", md: 6 }}
+          <VStack
+            py="2"
+            px="4"
             bg="#F3F3F3"
-            p="4"
-            space="4"
-            // mt="6"
+            space="2"
             borderColor="coolGray.300"
           >
-            <VStack space="2">
+            <HStack justifyContent="space-between" alignItems="center">
               <Text
+                fontSize="md"
+                fontWeight="semibold"
                 _dark={{
-                  bg: { base: "coolGray.800", md: "coolGray.900" },
-
                   color: "coolGray.50",
+                  bg: { base: "coolGray.800", md: "coolGray.900" },
                 }}
                 _light={{
                   color: "coolGray.800",
                 }}
-                fontSize="md"
-                fontWeight="semibold"
               >
                 SHIPPING ADDRESS
               </Text>
-              <VStack>
-                <Text
-                  _dark={{
-                    bg: { base: "coolGray.800", md: "coolGray.900" },
-
-                    color: "coolGray.50",
-                  }}
-                  _light={{
-                    color: "coolGray.800",
-                  }}
-                  fontSize="xs"
-                >
-                  Rohit kumar
-                </Text>
-                <Text
-                  _dark={{
-                    bg: { base: "coolGray.800", md: "coolGray.900" },
-
-                    color: "coolGray.50",
-                  }}
-                  _light={{
-                    color: "coolGray.800",
-                  }}
-                  fontSize="xs"
-                >
-                  Similique a dicta fu, Bangalore - 560102, India
-                </Text>
-              </VStack>
               <Text
-                _dark={{
-                  bg: { base: "coolGray.800", md: "coolGray.900" },
-
-                  color: "coolGray.50",
-                }}
-                _light={{
-                  color: "coolGray.800",
-                }}
-                fontSize="xs"
+                fontSize="sm"
                 fontWeight="semibold"
-              >
-                +91-9988776655
-              </Text>
-            </VStack>
-            <VStack pr={4}>
-              <Text
                 _dark={{
-                  bg: { base: "coolGray.800", md: "coolGray.900" },
-
                   color: "coolGray.50",
+                  bg: { base: "coolGray.800", md: "coolGray.900" },
                 }}
                 _light={{
                   color: "#FC2778",
                 }}
-                fontSize="xs"
-                fontWeight="semibold"
               >
                 CHANGE
               </Text>
+            </HStack>
+            <VStack>
+              <Text
+                fontSize="xs"
+                _dark={{
+                  color: "coolGray.50",
+                  bg: { base: "coolGray.800", md: "coolGray.900" },
+                }}
+                _light={{
+                  color: "coolGray.800",
+                }}
+              >
+                John Doe
+              </Text>
+              <Text
+                fontSize="xs"
+                _dark={{
+                  color: "coolGray.50",
+                  bg: { base: "coolGray.800", md: "coolGray.900" },
+                }}
+                _light={{
+                  color: "coolGray.800",
+                }}
+              >
+                XYZ, Street 12, 96 Avenue
+              </Text>
             </VStack>
-          </HStack>
+            <Text
+              _dark={{
+                color: "coolGray.50",
+                bg: { base: "coolGray.800", md: "coolGray.900" },
+              }}
+              _light={{
+                color: "coolGray.800",
+              }}
+              fontSize="xs"
+              fontWeight="semibold"
+            >
+              +XX-666XXXXXXX
+            </Text>
+          </VStack>
         </VStack>
       </HStack>
     </Box>

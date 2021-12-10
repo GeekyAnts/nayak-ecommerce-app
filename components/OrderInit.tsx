@@ -1,8 +1,8 @@
+import React, { useState } from "react";
 import { AntDesign, EvilIcons, Feather } from "@expo/vector-icons";
 import {
   Box,
   Button,
-  Center,
   Divider,
   HStack,
   Icon,
@@ -12,80 +12,75 @@ import {
   Pressable,
   useColorModeValue,
 } from "native-base";
-import React, { useState } from "react";
-import FloatingLabelInput from "./components/FloatingInput";
-import Header from "./components/Header";
+import FloatingLabelInput from "./FloatingInput";
+
+const LINE_ITEMS = [
+  {
+    itemNumber: 0,
+    modalVisible: false,
+    text: "Sub Total",
+    Amount: "₹1199",
+  },
+  {
+    itemNumber: 1,
+    modalVisible: false,
+    text: "Shipping Charge",
+    Amount: "Free",
+  },
+  {
+    itemNumber: 2,
+    modalVisible: false,
+    text: "Discount",
+    Amount: "- ₹0",
+  },
+  {
+    itemNumber: 2,
+    modalVisible: false,
+    text: "Use Reward Points (2000)",
+    Amount: "APPLY",
+  },
+];
 
 export default function Checkout() {
   const [text, setText] = useState("");
   const [showDetails, setShowDetails] = useState(true);
   const [expandTotal, setExpandToatal] = useState(true);
-  const price = [
-    {
-      itemNumber: 0,
-      modalVisible: false,
-      text: "Sub Total",
-      Amount: "₹1199",
-    },
-    {
-      itemNumber: 1,
-      modalVisible: false,
-      text: "Shipping Charge",
-      Amount: "Free",
-    },
-    {
-      itemNumber: 2,
-      modalVisible: false,
-      text: "Discount",
-      Amount: "- ₹0",
-    },
-    {
-      itemNumber: 2,
-      modalVisible: false,
-      text: "Use Reward Points (2000)",
-      Amount: "APPLY",
-    },
-  ];
+
   return (
-    <Box flexGrow={1} _light={{ bg: "coolGray.100" }} _dark={{}}>
+    <Box _light={{ bg: "coolGray.100" }}>
       <HStack space={5} mt={10} justifyContent="center">
         <Box
           py="4"
           px="4"
-          _light={{ bg: "white" }}
-          _dark={{}}
-          width={{ lg: "20%" }}
           mr="3"
           shadow="2"
           maxHeight={12}
+          borderRightWidth={2}
+          width={{ lg: "20%" }}
+          _light={{ bg: "white" }}
           justifyContent="center"
           borderRightColor="#FD2578"
-          borderRightWidth={2}
         >
           <Text
-            _light={{ color: "#FC2779" }}
-            _dark={{}}
-            fontWeight="semibold"
             fontSize="md"
+            fontWeight="semibold"
+            _light={{ color: "#FC2779" }}
           >
             Login/Register
           </Text>
         </Box>
         <VStack
-          _light={{ bg: "white" }}
-          _dark={{}}
-          width={{ lg: "30%" }}
-          shadow="2"
-          px={5}
           mr="3"
+          px={5}
+          shadow="2"
+          _light={{ bg: "white" }}
+          width={{ lg: "30%" }}
         >
           <Text
             _light={{ color: "#3F414D" }}
-            _dark={{}}
             fontWeight="semibold"
             fontSize="md"
             py="4"
-            // px="4"
           >
             Login or Register
           </Text>
@@ -95,7 +90,6 @@ export default function Checkout() {
               <Icon size="6" as={Feather} name="check" color="#5CD185" />
               <Text
                 _light={{ color: "#3F414D" }}
-                _dark={{}}
                 fontSize="sm"
                 fontWeight="normal"
               >
@@ -116,7 +110,6 @@ export default function Checkout() {
             <Button
               size="lg"
               _light={{ bg: "white" }}
-              _dark={{}}
               variant="outline"
               leftIcon={
                 <Icon as={AntDesign} name="facebook-square" size="sm" />
@@ -127,10 +120,8 @@ export default function Checkout() {
               <Text
                 fontSize="sm"
                 _light={{ color: "3F414D" }}
-                _dark={{}}
                 fontWeight="medium"
               >
-                {" "}
                 FACEBOOK
               </Text>
             </Button>
@@ -138,7 +129,6 @@ export default function Checkout() {
             <Button
               size="lg"
               _light={{ bg: "white" }}
-              _dark={{}}
               variant="outline"
               borderColor="coolGray.200"
               leftIcon={
@@ -148,10 +138,8 @@ export default function Checkout() {
               <Text
                 fontSize="sm"
                 _light={{ color: "3F414D" }}
-                _dark={{}}
                 fontWeight="medium"
               >
-                {" "}
                 GOOGLE
               </Text>
             </Button>
@@ -161,7 +149,6 @@ export default function Checkout() {
             py="3"
             isRequired
             label="Or Enter Email-Id Or Phone Number"
-            // labelColor="#FC2778"
             labelBGColor={useColorModeValue("#fff", "#1f2937")}
             borderRadius="sm"
             defaultValue={text}
@@ -191,11 +178,9 @@ export default function Checkout() {
             <Text
               fontSize="sm"
               _light={{ color: "white" }}
-              _dark={{}}
               fontWeight="medium"
               letterSpacing={0.8}
             >
-              {" "}
               NEXT
             </Text>
           </Button>
@@ -205,7 +190,6 @@ export default function Checkout() {
           <Divider></Divider>
           <Text
             _light={{ color: "#3F414D" }}
-            _dark={{}}
             fontSize="xs"
             my={4}
             fontWeight="medium"
@@ -215,7 +199,6 @@ export default function Checkout() {
           <Button
             size="lg"
             _light={{ bg: "white" }}
-            _dark={{}}
             variant="outline"
             borderColor="#FC2778"
             py="3"
@@ -232,17 +215,17 @@ export default function Checkout() {
               fontWeight="semibold"
               letterSpacing={0.8}
             >
-              {" "}
               CONTINUE AS GUEST
             </Text>
           </Button>
         </VStack>
-        <Box bg="white" width="30%" height="80%" shadow={3}>
+        <Box bg="white" width="30%" alignSelf="flex-start" shadow={3}>
           <HStack alignItems="center" justifyContent="space-between" px={4}>
             <Text color="#FFA838" fontSize="sm" fontWeight="medium">
               1 Items in your Bag
             </Text>
             <Pressable
+              // @ts-ignore
               onPress={() => {
                 setShowDetails(!showDetails);
               }}
@@ -270,13 +253,12 @@ export default function Checkout() {
                   height={20}
                   width={16}
                 />
-
                 <VStack space={1}>
-                  <Text>Nykaa SKINRX AM/PM Duo for Acne Free Skin</Text>
-                  <Text>2pcs</Text>
-                  <Divider />
-
+                  <Text w="90%">Nykaa SKINRX AM/PM Duo for Acne Free Skin</Text>
+                  <Text mb="1">2pcs</Text>
+                  <Divider w="90%" />
                   <HStack
+                    w="90%"
                     space={1}
                     alignItems="center"
                     justifyContent="space-between"
@@ -295,7 +277,7 @@ export default function Checkout() {
           ) : null}
           {expandTotal ? (
             <VStack px={4} space={3} mt={2}>
-              {price.map((item, index) => {
+              {LINE_ITEMS.map((item, index) => {
                 return (
                   <HStack
                     key={index}
@@ -350,6 +332,7 @@ export default function Checkout() {
               Grand Total
             </Text>
             <Pressable
+              // @ts-ignore
               onPress={() => {
                 setExpandToatal(!expandTotal);
               }}

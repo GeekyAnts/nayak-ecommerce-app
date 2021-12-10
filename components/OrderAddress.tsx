@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {
   Box,
   Button,
-  Center,
   Divider,
   HStack,
   Icon,
@@ -12,65 +11,64 @@ import {
   useColorModeValue,
   VStack,
 } from "native-base";
-import FloatingLabelInput from "./components/FloatingInput";
 import { EvilIcons } from "@expo/vector-icons";
+import FloatingLabelInput from "./FloatingInput";
+
+const LINE_ITEMS = [
+  {
+    itemNumber: 0,
+    modalVisible: false,
+    text: "Sub Total",
+    Amount: "₹1199",
+  },
+  {
+    itemNumber: 1,
+    modalVisible: false,
+    text: "Shipping Charge",
+    Amount: "Free",
+  },
+  {
+    itemNumber: 2,
+    modalVisible: false,
+    text: "Discount",
+    Amount: "- ₹0",
+  },
+  {
+    itemNumber: 2,
+    modalVisible: false,
+    text: "Use Reward Points (2000)",
+    Amount: "APPLY",
+  },
+];
 
 export default function Address(props: any) {
   const [text, setText] = useState("");
   const [showDetails, setShowDetails] = useState(true);
   const [expandTotal, setExpandToatal] = useState(true);
-  const price = [
-    {
-      itemNumber: 0,
-      modalVisible: false,
-      text: "Sub Total",
-      Amount: "₹1199",
-    },
-    {
-      itemNumber: 1,
-      modalVisible: false,
-      text: "Shipping Charge",
-      Amount: "Free",
-    },
-    {
-      itemNumber: 2,
-      modalVisible: false,
-      text: "Discount",
-      Amount: "- ₹0",
-    },
-    {
-      itemNumber: 2,
-      modalVisible: false,
-      text: "Use Reward Points (2000)",
-      Amount: "APPLY",
-    },
-  ];
+
   return (
-    <Box bg="coolGray.100" flexGrow={1}>
-      <HStack space={5} mt={10} justifyContent="center">
+    <Box bg="coolGray.100" flexGrow="1">
+      <HStack space="5" mt="10" justifyContent="center">
         <Box
           py="4"
           px="4"
-          _light={{ bg: "white" }}
-          _dark={{}}
-          width={{ lg: "20%" }}
           mr="3"
           shadow="2"
-          maxHeight={12}
+          maxHeight="12"
+          borderRightWidth="2"
+          width={{ lg: "20%" }}
+          _light={{ bg: "white" }}
           justifyContent="center"
           borderRightColor="#FD2578"
-          borderRightWidth={2}
         >
           <HStack justifyContent="space-between">
             <Text
-              _light={{ color: "#FC2779" }}
-              _dark={{}}
-              fontWeight="semibold"
               fontSize="md"
+              fontWeight="semibold"
+              _light={{ color: "#FC2779" }}
             >
               New Address
             </Text>
-            {/* <Divider orientation="vertical" width="2" color="#FC2779"></Divider> */}
           </HStack>
         </Box>
         <Box bg="white" shadow="4" width="35%" height="100%" px={4}>
@@ -202,15 +200,15 @@ export default function Address(props: any) {
             <Button
               mt={4}
               mb={10}
-              variant="unstyled"
               bgColor="#FD2578"
+              variant="unstyled"
+              // @ts-ignore
               onPress={() => {
-                console.log("hello");
+                console.log("Ship To Address clicked");
               }}
             >
               <HStack alignItems="center" space="2">
                 <Text color="white" fontSize="sm" fontWeight="semibold">
-                  {" "}
                   SHIP TO THIS ADDRESS
                 </Text>
                 <Icon as={EvilIcons} name="chevron-right" color="white" />
@@ -218,12 +216,13 @@ export default function Address(props: any) {
             </Button>
           </VStack>
         </Box>
-        <Box bg="white" width="30%" height="80%" shadow={3}>
+        <Box bg="white" alignSelf="flex-start" width="30%" shadow={3}>
           <HStack alignItems="center" justifyContent="space-between" px={4}>
             <Text color="#FFA838" fontSize="sm" fontWeight="medium">
               1 Items in your Bag
             </Text>
             <Pressable
+              // @ts-ignore
               onPress={() => {
                 setShowDetails(!showDetails);
               }}
@@ -234,8 +233,8 @@ export default function Address(props: any) {
                 </Text>
                 <Icon
                   as={EvilIcons}
-                  name={showDetails ? "chevron-up" : "chevron-down"}
                   color="#FD2578"
+                  name={showDetails ? "chevron-up" : "chevron-down"}
                 />
               </HStack>
             </Pressable>
@@ -251,13 +250,12 @@ export default function Address(props: any) {
                   height={20}
                   width={16}
                 />
-
                 <VStack space={1}>
-                  <Text>Nykaa SKINRX AM/PM Duo for Acne Free Skin</Text>
-                  <Text>2pcs</Text>
-                  <Divider />
-
+                  <Text w="90%">Nykaa SKINRX AM/PM Duo for Acne Free Skin</Text>
+                  <Text mb="1">2pcs</Text>
+                  <Divider w="90%" />
                   <HStack
+                    w="90%"
                     space={1}
                     alignItems="center"
                     justifyContent="space-between"
@@ -276,7 +274,7 @@ export default function Address(props: any) {
           ) : null}
           {expandTotal ? (
             <VStack px={4} space={3} mt={2}>
-              {price.map((item, index) => {
+              {LINE_ITEMS.map((item, index) => {
                 return (
                   <HStack
                     key={index}
@@ -331,6 +329,7 @@ export default function Address(props: any) {
               Grand Total
             </Text>
             <Pressable
+              // @ts-ignore
               onPress={() => {
                 setExpandToatal(!expandTotal);
               }}
