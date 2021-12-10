@@ -9,7 +9,7 @@ import {
   Text,
   VStack,
 } from "native-base";
-import { MaterialIcons } from "@expo/vector-icons";
+import { MaterialIcons, Octicons } from "@expo/vector-icons";
 
 export default function Payment(props: any) {
   const reasonList = [
@@ -22,8 +22,8 @@ export default function Payment(props: any) {
     "Gift Card",
   ];
   return (
-    <Box w="100%" bg="gray.100" p="4">
-      <Text fontSize="sm" fontWeight="bold" ml="8">
+    <Box w="100%" h="100%" bg="#F3F3F3" p="4">
+      <Text fontSize="md" fontWeight="semibold" ml="8">
         CHOOSE PAYMENT METHOD
       </Text>
       <HStack w="100%" space="4" p="4">
@@ -32,7 +32,7 @@ export default function Payment(props: any) {
           borderWidth="1"
           borderColor="coolGray.300"
           bg="white"
-          h="95%"
+          h="100%"
         >
           {reasonList.map((item, index) => {
             return (
@@ -49,8 +49,8 @@ export default function Payment(props: any) {
                       _light={{
                         color: "#FC2778",
                       }}
-                      fontSize="sm"
-                      fontWeight="bold"
+                      fontSize="md"
+                      fontWeight="semibold"
                     >
                       Credit/Debit Card
                     </Text>
@@ -62,11 +62,11 @@ export default function Payment(props: any) {
                       my={{ base: "3.5", md: 3 }}
                       _dark={{
                         bg: { base: "coolGray.800", md: "coolGray.900" },
-                        fontSize: "sm",
+                        fontSize: "md",
                         color: "coolGray.50",
                       }}
                       _light={{
-                        fontSize: "sm",
+                        fontSize: "md",
                         color: "coolGray.800",
                       }}
                     >
@@ -103,8 +103,8 @@ export default function Payment(props: any) {
             _light={{
               color: "coolGray.800",
             }}
-            fontSize="sm"
-            fontWeight="bold"
+            fontSize="md"
+            fontWeight="semibold"
           >
             Credit/Debit Card
           </Text>
@@ -118,6 +118,7 @@ export default function Payment(props: any) {
             fontSize="sm"
             borderWidth="0"
             mt="8"
+            fontWeight="semibold"
           />
           <Divider
             _light={{ bg: "coolGray.400" }}
@@ -136,16 +137,28 @@ export default function Payment(props: any) {
               color: "coolGray.400",
             }}
             fontSize="sm"
-            fontWeight="bold"
+            fontWeight="semibold"
           >
             Expiry
           </Text>
-          <HStack space="4">
+          <HStack space="4" alignItems="center">
             <VStack w="30%">
               <HStack alignItems="center">
-                <Input placeholder="MM" fontSize="sm" borderWidth="0" w="40%" />
+                <Input
+                  placeholder="MM"
+                  fontSize="sm"
+                  fontWeight="semibold"
+                  borderWidth="0"
+                  w="40%"
+                />
                 <Text>/</Text>
-                <Input placeholder="YY" fontSize="sm" borderWidth="0" w="40%" />
+                <Input
+                  placeholder="YY"
+                  fontWeight="semibold"
+                  fontSize="sm"
+                  borderWidth="0"
+                  w="40%"
+                />
               </HStack>
               <Divider
                 _light={{ bg: "coolGray.200" }}
@@ -154,7 +167,12 @@ export default function Payment(props: any) {
               />
             </VStack>
             <VStack w="15%">
-              <Input placeholder="CVV" fontSize="sm" borderWidth="0" />
+              <Input
+                placeholder="CVV"
+                fontWeight="semibold"
+                fontSize="sm"
+                borderWidth="0"
+              />
               <Divider
                 _light={{ bg: "coolGray.200" }}
                 _dark={{ bg: "coolGray.400" }}
@@ -162,7 +180,30 @@ export default function Payment(props: any) {
               />
             </VStack>
 
-            <Text>Last 3 Digits at the back of the Card</Text>
+            <HStack flex="1" alignItems="center">
+              <Icon
+                ml="0.5"
+                as={Octicons}
+                name="credit-card"
+                size="10"
+                _light={{ color: "coolGray.500" }}
+                _dark={{ color: "coolGray.500" }}
+              />
+              <Text
+                _dark={{
+                  bg: { base: "coolGray.800", md: "coolGray.900" },
+
+                  color: "coolGray.50",
+                }}
+                _light={{
+                  color: "coolGray.500",
+                }}
+                fontSize="sm"
+                ml="4"
+              >
+                Last 3 Digits at the back of the Card
+              </Text>
+            </HStack>
           </HStack>
           <Button
             mt="8"
@@ -174,13 +215,14 @@ export default function Payment(props: any) {
             }}
             _light={{
               bg: "#FC2778",
-              _pressed: { bg: "primary.700" },
+              _pressed: { bg: "pink.600" },
+              _hover: { bg: "pink.500" },
             }}
             borderRadius={4}
           >
             <HStack justifyContent="center">
-              <Text fontSize="md" fontWeight="medium" color="coolGray.50">
-                PAY RS 799 NOW
+              <Text fontSize="sm" fontWeight="semibold" color="coolGray.50">
+                PAY ₹799 NOW
               </Text>
               <Icon
                 ml="2"
@@ -197,7 +239,7 @@ export default function Payment(props: any) {
           borderWidth="1"
           borderColor="coolGray.300"
           h="100%"
-          w="30%"
+          w="26%"
           bg="white"
         >
           <HStack
@@ -216,7 +258,7 @@ export default function Payment(props: any) {
                 color: "amber.500",
               }}
               fontSize="sm"
-              fontWeight="bold"
+              fontWeight="semibold"
             >
               1 Items in your Bag
             </Text>
@@ -230,8 +272,8 @@ export default function Payment(props: any) {
                 _light={{
                   color: "#FC2778",
                 }}
-                fontSize="sm"
-                fontWeight="bold"
+                fontSize="xs"
+                fontWeight="semibold"
               >
                 DETAILS
               </Text>
@@ -265,7 +307,7 @@ export default function Payment(props: any) {
                 color: "coolGray.800",
               }}
               fontSize="sm"
-              fontWeight="regular"
+              fontWeight="semibold"
             >
               Sub Total
             </Text>
@@ -279,7 +321,7 @@ export default function Payment(props: any) {
                 color: "coolGray.800",
               }}
               fontSize="sm"
-              fontWeight="regular"
+              fontWeight="semibold"
             >
               ₹799
             </Text>
@@ -299,7 +341,7 @@ export default function Payment(props: any) {
                 color: "coolGray.800",
               }}
               fontSize="sm"
-              fontWeight="regular"
+              fontWeight="semibold"
             >
               Shipping Charge
             </Text>
@@ -313,7 +355,7 @@ export default function Payment(props: any) {
                 color: "emerald.400",
               }}
               fontSize="sm"
-              fontWeight="regular"
+              fontWeight="semibold"
             >
               Free
             </Text>
@@ -333,7 +375,7 @@ export default function Payment(props: any) {
                 color: "emerald.400",
               }}
               fontSize="sm"
-              fontWeight="regular"
+              fontWeight="semibold"
             >
               Discount
             </Text>
@@ -347,7 +389,7 @@ export default function Payment(props: any) {
                 color: "emerald.400",
               }}
               fontSize="sm"
-              fontWeight="regular"
+              fontWeight="semibold"
             >
               - ₹0
             </Text>
@@ -375,7 +417,7 @@ export default function Payment(props: any) {
                 color: "coolGray.800",
               }}
               fontSize="sm"
-              fontWeight="bold"
+              fontWeight="semibold"
             >
               Grand Total
             </Text>
@@ -390,7 +432,7 @@ export default function Payment(props: any) {
                   color: "coolGray.800",
                 }}
                 fontSize="sm"
-                fontWeight="bold"
+                fontWeight="semibold"
               >
                 ₹799
               </Text>
@@ -412,7 +454,7 @@ export default function Payment(props: any) {
           <HStack
             justifyContent="space-between"
             mt={{ base: "3.5", md: 6 }}
-            bg="coolGray.200"
+            bg="#F3F3F3"
             p="4"
             space="4"
             // mt="6"
@@ -429,7 +471,7 @@ export default function Payment(props: any) {
                   color: "coolGray.800",
                 }}
                 fontSize="md"
-                fontWeight="bold"
+                fontWeight="semibold"
               >
                 SHIPPING ADDRESS
               </Text>
@@ -458,7 +500,7 @@ export default function Payment(props: any) {
                   }}
                   fontSize="xs"
                 >
-                  Similique a dicta fu, Bangalore - 560102, , India
+                  Similique a dicta fu, Bangalore - 560102, India
                 </Text>
               </VStack>
               <Text
@@ -471,12 +513,12 @@ export default function Payment(props: any) {
                   color: "coolGray.800",
                 }}
                 fontSize="xs"
-                fontWeight="bold"
+                fontWeight="semibold"
               >
                 +91-9988776655
               </Text>
             </VStack>
-            <VStack>
+            <VStack pr={4}>
               <Text
                 _dark={{
                   bg: { base: "coolGray.800", md: "coolGray.900" },
@@ -487,7 +529,7 @@ export default function Payment(props: any) {
                   color: "#FC2778",
                 }}
                 fontSize="xs"
-                fontWeight="bold"
+                fontWeight="semibold"
               >
                 CHANGE
               </Text>
