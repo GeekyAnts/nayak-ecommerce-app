@@ -17,8 +17,8 @@ import { EvilIcons } from "@expo/vector-icons";
 
 export default function Address(props: any) {
   const [text, setText] = useState("");
-  const [showDetails, setShowDetails] = useState(false);
-  const [expandTotal, setExpandToatal] = useState(false);
+  const [showDetails, setShowDetails] = useState(true);
+  const [expandTotal, setExpandToatal] = useState(true);
   const price = [
     {
       itemNumber: 0,
@@ -46,8 +46,8 @@ export default function Address(props: any) {
     },
   ];
   return (
-    <Box bg="white">
-      <HStack space={5} alignItems="center" mt={10} justifyContent="center">
+    <Box bg="coolGray.100" flexGrow={1}>
+      <HStack space={5} mt={10} justifyContent="center">
         <Box
           py="4"
           px="4"
@@ -62,7 +62,6 @@ export default function Address(props: any) {
           borderRightWidth={2}
         >
           <HStack justifyContent="space-between">
-            {" "}
             <Text
               _light={{ color: "#FC2779" }}
               _dark={{}}
@@ -74,7 +73,7 @@ export default function Address(props: any) {
             {/* <Divider orientation="vertical" width="2" color="#FC2779"></Divider> */}
           </HStack>
         </Box>
-        <Box bg="white" shadow="4" width="35%" height="100%" mt={8} px={4}>
+        <Box bg="white" shadow="4" width="35%" height="100%" px={4}>
           <Text fontSize="md" fontWeight="semibold" mt={4}>
             New Address
           </Text>
@@ -202,6 +201,7 @@ export default function Address(props: any) {
             />
             <Button
               mt={4}
+              mb={10}
               variant="unstyled"
               bgColor="#FD2578"
               onPress={() => {
