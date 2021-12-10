@@ -200,7 +200,10 @@ export default function Address(props: any) {
               }}
             >
               <HStack alignItems="center" space="2">
-                <Text color="white"> SHIP TO THIS ADDRESS</Text>
+                <Text color="white" fontSize="sm" fontWeight="semibold">
+                  {" "}
+                  SHIP TO THIS ADDRESS
+                </Text>
                 <Icon as={EvilIcons} name="chevron-right" color="white" />
               </HStack>
             </Button>
