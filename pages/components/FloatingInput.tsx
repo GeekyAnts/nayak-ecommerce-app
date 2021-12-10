@@ -31,7 +31,7 @@ export default class FloatingLabelInput extends Component<any, any> {
     const { label, ...props } = this.props;
     const lableContainerStyles = {
       position: "absolute",
-      // left: 16,
+      left: 2,
       top: this._animatedIsFocused.interpolate({
         inputRange: [0, 1],
         outputRange: [16, -7],
@@ -39,6 +39,7 @@ export default class FloatingLabelInput extends Component<any, any> {
       zIndex: 5,
       paddingLeft: 3,
       paddingRight: 3,
+
       backgroundColor: this.props.labelBGColor,
     } as any;
     const AndroidlabelStyle = {
@@ -48,7 +49,7 @@ export default class FloatingLabelInput extends Component<any, any> {
         outputRange: [16, 12],
       }),
 
-      color: this.props.labelColor,
+      // color: this.props.labelColor,
     } as any;
     const IOSlabelStyle = {
       fontWeight: "500",
@@ -61,7 +62,8 @@ export default class FloatingLabelInput extends Component<any, any> {
         inputRange: [0, 1],
         outputRange: [-3, 0],
       }),
-      color: this.props.labelColor,
+
+      color: this.state.isFocused ? "#FC2778" : "#9CA3AF",
     } as any;
     return (
       <Box w={this.props.containerWidth}>
@@ -75,6 +77,10 @@ export default class FloatingLabelInput extends Component<any, any> {
           </Animated.Text>
         </Animated.View>
         <Input
+          variant="unstyled"
+          borderBottomWidth={1}
+          borderRadius="none"
+          borderBottomColor={this.state.isFocused ? "#FC2778" : "coolGray.300"}
           {...props}
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
