@@ -22,11 +22,8 @@ export default function Payment(props: any) {
     "Gift Card",
   ];
   return (
-    <Box w="100%" h="100%" bg="#F3F3F3" p="4">
-      <Text fontSize="md" fontWeight="semibold" ml="8">
-        CHOOSE PAYMENT METHOD
-      </Text>
-      <HStack w="100%" space="4" p="4">
+    <Box flexGrow={1} w="100%" h="100%" bg="coolGray.100" p="5">
+      <HStack w="100%" p="4" space={5} justifyContent="center">
         <VStack
           w="20%"
           borderWidth="1"

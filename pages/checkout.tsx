@@ -18,8 +18,8 @@ import Header from "./components/Header";
 
 export default function Checkout() {
   const [text, setText] = useState("");
-  const [showDetails, setShowDetails] = useState(false);
-  const [expandTotal, setExpandToatal] = useState(false);
+  const [showDetails, setShowDetails] = useState(true);
+  const [expandTotal, setExpandToatal] = useState(true);
   const price = [
     {
       itemNumber: 0,
@@ -48,8 +48,7 @@ export default function Checkout() {
   ];
   return (
     <Box flexGrow={1} _light={{ bg: "coolGray.100" }} _dark={{}}>
-      <Header></Header>
-      <HStack>
+      <HStack space={5} mt={10} justifyContent="center">
         <Box
           py="4"
           px="4"
@@ -63,17 +62,14 @@ export default function Checkout() {
           borderRightColor="#FD2578"
           borderRightWidth={2}
         >
-          <HStack justifyContent="space-between">
-            {" "}
-            <Text
-              _light={{ color: "#FC2779" }}
-              _dark={{}}
-              fontWeight="semibold"
-              fontSize="md"
-            >
-              Login/Register
-            </Text>
-          </HStack>
+          <Text
+            _light={{ color: "#FC2779" }}
+            _dark={{}}
+            fontWeight="semibold"
+            fontSize="md"
+          >
+            Login/Register
+          </Text>
         </Box>
         <VStack
           _light={{ bg: "white" }}
