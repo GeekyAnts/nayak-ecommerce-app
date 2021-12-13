@@ -3,6 +3,7 @@ import {
   Box,
   Button,
   Divider,
+  Hidden,
   HStack,
   Icon,
   Input,
@@ -24,8 +25,19 @@ const PAYMENT_VENDORS = [
 export default function Payment(props: any) {
   return (
     <Box bg="coolGray.100" p="5">
-      <HStack p="4" space={5} justifyContent="center">
-        <VStack w="20%" bg="white" borderWidth="1" borderColor="coolGray.300">
+      <HStack
+        p="4"
+        space={5}
+        justifyContent="center"
+        flexDirection={{ lg: "row" }}
+      >
+        <VStack
+          w={{ lg: "20%" }}
+          mb={{ base: "4", lg: "0" }}
+          bg="white"
+          borderWidth="1"
+          borderColor="coolGray.300"
+        >
           {PAYMENT_VENDORS.map((item, index) => {
             return (
               <VStack alignItems="flex-start" key={index} pl="2">
@@ -78,7 +90,8 @@ export default function Payment(props: any) {
         </VStack>
         <VStack
           px="4"
-          w="35%"
+          mb={{ base: "4", lg: "0" }}
+          w={{ lg: "35%" }}
           bg="white"
           borderWidth="1"
           borderColor="coolGray.300"
@@ -175,21 +188,39 @@ export default function Payment(props: any) {
                 _light={{ color: "coolGray.500" }}
                 _dark={{ color: "coolGray.500" }}
               />
-              <Text
-                w="50%"
-                _dark={{
-                  color: "coolGray.50",
-                  bg: { base: "coolGray.800", md: "coolGray.900" },
-                }}
-                _light={{
-                  color: "coolGray.500",
-                }}
-                fontSize="sm"
-              >
-                Last 3 Digits at the back of the Card
-              </Text>
+              <Hidden till="xl">
+                <Text
+                  w="50%"
+                  _dark={{
+                    color: "coolGray.50",
+                    bg: { base: "coolGray.800", md: "coolGray.900" },
+                  }}
+                  _light={{
+                    color: "coolGray.500",
+                  }}
+                  fontSize="sm"
+                >
+                  Last 3 Digits at the back of the Card
+                </Text>
+              </Hidden>
             </HStack>
           </HStack>
+          <Hidden from="xl">
+            <Text
+              w="50%"
+              my="2"
+              _dark={{
+                color: "coolGray.50",
+                bg: { base: "coolGray.800", md: "coolGray.900" },
+              }}
+              _light={{
+                color: "coolGray.500",
+              }}
+              fontSize="sm"
+            >
+              Last 3 Digits at the back of the Card
+            </Text>
+          </Hidden>
           <Button
             py="3"
             mb="4"
@@ -220,7 +251,12 @@ export default function Payment(props: any) {
             </HStack>
           </Button>
         </VStack>
-        <VStack w="26%" bg="white" borderWidth="1" borderColor="coolGray.300">
+        <VStack
+          w={{ lg: "26%" }}
+          bg="white"
+          borderWidth="1"
+          borderColor="coolGray.300"
+        >
           <HStack
             my="3"
             px="4"
