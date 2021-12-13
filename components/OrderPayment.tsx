@@ -29,11 +29,11 @@ export default function Payment(props: any) {
         p="4"
         space={5}
         justifyContent="center"
-        flexDirection={{ lg: "row" }}
+        flexDirection={{ xl: "row" }}
       >
         <VStack
-          w={{ lg: "20%" }}
-          mb={{ base: "4", lg: "0" }}
+          w={{ xl: "20%" }}
+          mb={{ base: "4", xl: "0" }}
           bg="white"
           borderWidth="1"
           borderColor="coolGray.300"
@@ -90,8 +90,8 @@ export default function Payment(props: any) {
         </VStack>
         <VStack
           px="4"
-          mb={{ base: "4", lg: "0" }}
-          w={{ lg: "35%" }}
+          mb={{ base: "4", xl: "0" }}
+          w={{ xl: "35%" }}
           bg="white"
           borderWidth="1"
           borderColor="coolGray.300"
@@ -252,7 +252,7 @@ export default function Payment(props: any) {
           </Button>
         </VStack>
         <VStack
-          w={{ lg: "26%" }}
+          w={{ xl: "26%" }}
           bg="white"
           borderWidth="1"
           borderColor="coolGray.300"
