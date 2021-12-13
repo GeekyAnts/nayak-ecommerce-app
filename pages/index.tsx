@@ -32,14 +32,16 @@ export default function OrderCheckoutFlow(props: any) {
             bg: "white",
             borderColor: "coolGray.200",
           }}
-          flexDirection={{ md: "row", lg: "row" }}
+          flexWrap="wrap"
+          width="100%"
         >
           <Logo />
           <HStack
             justifyContent="space-between"
             pt={2}
             px={{ base: 4, md: 4, lg: 10 }}
-            flexDirection={{ md: "row", lg: "row" }}
+            flexWrap="wrap"
+            w={{ base: "60%", md: "60%", lg: "40%" }}
           >
             <Pressable
               p="2"
