@@ -48,7 +48,12 @@ export default function Checkout() {
 
   return (
     <Box _light={{ bg: "coolGray.100" }}>
-      <HStack space={5} mt={10} justifyContent="center">
+      <HStack
+        space={5}
+        mt={10}
+        justifyContent="center"
+        flexDirection={{ lg: "row" }}
+      >
         <Box
           py="4"
           px="4"
@@ -219,7 +224,12 @@ export default function Checkout() {
             </Text>
           </Button>
         </VStack>
-        <Box bg="white" width="30%" alignSelf="flex-start" shadow={3}>
+        <Box
+          bg="white"
+          w={{ lg: "26%", md: "100%" }}
+          shadow={3}
+          mt={{ md: 4, lg: 0, base: 4 }}
+        >
           <HStack alignItems="center" justifyContent="space-between" px={4}>
             <Text color="#FFA838" fontSize="sm" fontWeight="medium">
               1 Items in your Bag
@@ -236,29 +246,28 @@ export default function Checkout() {
                 </Text>
                 <Icon
                   as={EvilIcons}
-                  name={showDetails ? "chevron-up" : "chevron-down"}
                   color="#FD2578"
+                  name={showDetails ? "chevron-up" : "chevron-down"}
                 />
               </HStack>
             </Pressable>
           </HStack>
           {showDetails ? (
-            <Box bg="coolGray.100">
-              <HStack bg="white" mx={4} space={3} my={3} p={2}>
+            <Box bg="coolGray.200" w={{ lg: "100%", md: "100%", base: "100%" }}>
+              <HStack bg="white" space={1} mx={2} my={3} p={2}>
                 <Image
                   source={{
                     uri: "https://images-static.nykaa.com/media/catalog/product/tr:h-800,w-800,cm-pad_resize/6/_/6_255.jpg",
                   }}
                   alt="Alternate Text"
                   height={20}
-                  width={16}
+                  width={{ lg: "20%", md: "18%", base: "15%" }}
                 />
-                <VStack space={1}>
-                  <Text w="90%">Nykaa SKINRX AM/PM Duo for Acne Free Skin</Text>
+                <VStack space={1} w={{ lg: "80%", md: "82%", base: "85%" }}>
+                  <Text>Nykaa SKINRX AM/PM Duo for Acne Free Skin</Text>
                   <Text mb="1">2pcs</Text>
-                  <Divider w="90%" />
+                  <Divider />
                   <HStack
-                    w="90%"
                     space={1}
                     alignItems="center"
                     justifyContent="space-between"
@@ -268,7 +277,7 @@ export default function Checkout() {
                       <Text fontSize="2xs" strikeThrough>
                         ₹1598
                       </Text>
-                      <Text fontSize="lg">₹1199</Text>
+                      <Text fontSize="md">₹1199</Text>
                     </HStack>
                   </HStack>
                 </VStack>

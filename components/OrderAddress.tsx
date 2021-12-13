@@ -47,12 +47,16 @@ export default function Address(props: any) {
   const [expandTotal, setExpandToatal] = useState(true);
 
   return (
-    <Box bg="coolGray.100" flexGrow="1">
-      <HStack space="5" mt="10" justifyContent="center">
+    <Box bg="coolGray.100">
+      <HStack
+        space="5"
+        mt="10"
+        justifyContent="center"
+        flexDirection={{ lg: "row" }}
+      >
         <Box
           py="4"
-          px="4"
-          mr="3"
+          px={{ lg: 4, md: 4, base: 4 }}
           shadow="2"
           maxHeight="12"
           borderRightWidth="2"
@@ -71,8 +75,19 @@ export default function Address(props: any) {
             </Text>
           </HStack>
         </Box>
-        <Box bg="white" shadow="4" width="35%" height="100%" px={4}>
-          <Text fontSize="md" fontWeight="semibold" mt={4}>
+        <Box
+          bg="white"
+          shadow="4"
+          w={{ lg: "35%" }}
+          height={{ lg: "100%" }}
+          px={4}
+          mt={{ md: 4, lg: 0, base: 4 }}
+        >
+          <Text
+            fontSize="md"
+            fontWeight="semibold"
+            pt={{ md: 4, lg: 4, base: 4 }}
+          >
             New Address
           </Text>
           <VStack space="5" mt={5}>
@@ -216,7 +231,12 @@ export default function Address(props: any) {
             </Button>
           </VStack>
         </Box>
-        <Box bg="white" alignSelf="flex-start" width="30%" shadow={3}>
+        <Box
+          bg="white"
+          w={{ lg: "26%", md: "100%" }}
+          shadow={3}
+          mt={{ md: 4, lg: 0, base: 4 }}
+        >
           <HStack alignItems="center" justifyContent="space-between" px={4}>
             <Text color="#FFA838" fontSize="sm" fontWeight="medium">
               1 Items in your Bag
@@ -240,22 +260,21 @@ export default function Address(props: any) {
             </Pressable>
           </HStack>
           {showDetails ? (
-            <Box bg="coolGray.100">
-              <HStack bg="white" mx={4} space={3} my={3} p={2}>
+            <Box bg="coolGray.200" w={{ lg: "100%", md: "100%", base: "100%" }}>
+              <HStack bg="white" space={1} mx={2} my={3} p={2}>
                 <Image
                   source={{
                     uri: "https://images-static.nykaa.com/media/catalog/product/tr:h-800,w-800,cm-pad_resize/6/_/6_255.jpg",
                   }}
                   alt="Alternate Text"
                   height={20}
-                  width={16}
+                  width={{ lg: "20%", md: "18%", base: "15%" }}
                 />
-                <VStack space={1}>
-                  <Text w="90%">Nykaa SKINRX AM/PM Duo for Acne Free Skin</Text>
+                <VStack space={1} w={{ lg: "80%", md: "82%", base: "85%" }}>
+                  <Text>Nykaa SKINRX AM/PM Duo for Acne Free Skin</Text>
                   <Text mb="1">2pcs</Text>
-                  <Divider w="90%" />
+                  <Divider />
                   <HStack
-                    w="90%"
                     space={1}
                     alignItems="center"
                     justifyContent="space-between"
@@ -265,7 +284,7 @@ export default function Address(props: any) {
                       <Text fontSize="2xs" strikeThrough>
                         ₹1598
                       </Text>
-                      <Text fontSize="lg">₹1199</Text>
+                      <Text fontSize="md">₹1199</Text>
                     </HStack>
                   </HStack>
                 </VStack>

@@ -24,19 +24,24 @@ export default function OrderCheckoutFlow(props: any) {
     >
       <VStack>
         <HStack
-          pl="20"
-          space="40"
-          alignItems="center"
+          pl={{ base: 4, md: 10, lg: 20 }}
+          pt={{ base: 4 }}
+          space={{ base: 40, md: 40, lg: 40 }}
+          alignItems={{ lg: "center" }}
           _light={{
             bg: "white",
             borderColor: "coolGray.200",
           }}
+          flexWrap="wrap"
+          width="100%"
         >
           <Logo />
           <HStack
             justifyContent="space-between"
             pt={2}
-            px={{ base: 8, md: 10 }}
+            px={{ base: 4, md: 4, lg: 10 }}
+            flexWrap="wrap"
+            w={{ base: "60%", md: "60%", lg: "40%" }}
           >
             <Pressable
               p="2"
