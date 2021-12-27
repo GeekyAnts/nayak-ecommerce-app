@@ -1,18 +1,16 @@
 import React from "react";
-import { Box, HStack, VStack, Pressable, Text } from "native-base";
-import Logo from "../components/Logo";
+import { Box, HStack, VStack, Pressable, Text, Image } from "native-base";
 import OrderInit from "../components/OrderInit";
 import OrderAddress from "../components/OrderAddress";
 import OrderPayment from "../components/OrderPayment";
 
 export default function OrderCheckoutFlow(props: any) {
   const [tabName, setTabName] = React.useState("Login");
-
   return (
     <Box
-      h="100%"
-      shadow={4}
-      flexGrow={1}
+      flex="1"
+      shadow="4"
+      flexGrow="1"
       _light={{
         bg: "coolGray.100",
         borderColor: "coolGray.200",
@@ -24,23 +22,28 @@ export default function OrderCheckoutFlow(props: any) {
     >
       <VStack>
         <HStack
-          pl={{ base: 4, md: 10, lg: 20 }}
+          flexWrap="wrap"
           pt={{ base: 4 }}
-          space={{ base: 40, md: 40, lg: 40 }}
           alignItems={{ lg: "center" }}
+          pl={{ base: 4, md: 10, lg: 20 }}
+          space={{ base: 40, md: 40, lg: 40 }}
           _light={{
             bg: "white",
             borderColor: "coolGray.200",
           }}
-          flexWrap="wrap"
-          width="100%"
         >
-          <Logo />
+          <Image
+            size="md"
+            alt="logo"
+            alignSelf="center"
+            resizeMode="contain"
+            source={{ uri: "/logo.png" }}
+          />
           <HStack
-            justifyContent="space-between"
             pt={2}
-            px={{ base: 4, md: 4, lg: 10 }}
             flexWrap="wrap"
+            justifyContent="space-between"
+            px={{ base: 4, md: 4, lg: 10 }}
             w={{ base: "60%", md: "60%", lg: "40%" }}
           >
             <Pressable
