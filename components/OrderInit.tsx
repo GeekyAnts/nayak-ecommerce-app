@@ -104,7 +104,7 @@ export default function Checkout() {
             <HStack pt={1} space={2}>
               <Icon size="6" as={Feather} name="check" color="#5CD185" />
               <Text _light={{ color: "#3F414D" }} _dark={{}} fontSize="sm">
-                Get Reward Points on new registration
+                Get More Reward Points When You Share Code
               </Text>
             </HStack>
             <Text color="#7B7B7B" fontSize="sm" pt="4" fontWeight="medium">
@@ -153,7 +153,7 @@ export default function Checkout() {
           <FloatingLabelInput
             py="3"
             isRequired
-            label="Or Enter Email-Id Or Phone Number"
+            label="Enter Email-Id Or Phone Number"
             labelBGColor={useColorModeValue("#fff", "#1f2937")}
             borderRadius="sm"
             defaultValue={text}
