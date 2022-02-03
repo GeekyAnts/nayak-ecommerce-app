@@ -319,9 +319,16 @@ export default function Address(props: any) {
                         {item.Amount}
                       </Text>
                     ) : item.Amount == "APPLY" ? (
-                      <Text fontSize="sm" fontWeight="medium" color="#fc2779">
-                        {item.Amount}
-                      </Text>
+                      <Pressable
+                        // @ts-ignore
+                        onPress={() => {
+                          console.log("hello");
+                        }}
+                      >
+                        <Text fontSize="sm" fontWeight="medium" color="#fc2779">
+                          {item.Amount}
+                        </Text>
+                      </Pressable>
                     ) : (
                       <Text
                         fontSize="sm"

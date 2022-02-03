@@ -45,9 +45,8 @@ export default function OrderCheckoutFlow(props: any) {
           >
             <Pressable
               p="2"
-              px="0"
               pb="4"
-              pr="10"
+              pr="8"
               // @ts-ignore
               onPress={() => {
                 setTabName("Login");
