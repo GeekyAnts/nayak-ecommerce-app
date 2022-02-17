@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AntDesign, EvilIcons, Feather } from "@expo/vector-icons";
+import { AntDesign, EvilIcons, Feather } from "@native-base/icons";
 import {
   Box,
   Button,

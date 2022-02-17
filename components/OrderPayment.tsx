@@ -10,7 +10,7 @@ import {
   Text,
   VStack,
 } from "native-base";
-import { MaterialIcons, Octicons } from "@expo/vector-icons";
+import { MaterialIcons, Octicons } from "@native-base/icons";
 
 const PAYMENT_VENDORS = [
   "UPI",

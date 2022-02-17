@@ -11,7 +11,7 @@ import {
   useColorModeValue,
   VStack,
 } from "native-base";
-import { EvilIcons } from "@expo/vector-icons";
+import { EvilIcons } from "@native-base/icons";
 import FloatingLabelInput from "./FloatingInput";
 
 const LINE_ITEMS = [
