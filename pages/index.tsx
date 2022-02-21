@@ -1,5 +1,14 @@
 import React from "react";
-import { Box, HStack, VStack, Pressable, Text, Image } from "native-base";
+import {
+  Box,
+  HStack,
+  VStack,
+  Pressable,
+  Text,
+  Image,
+  ScrollView,
+  useColorModeValue,
+} from "native-base";
 import OrderInit from "../components/OrderInit";
 import OrderAddress from "../components/OrderAddress";
 import OrderPayment from "../components/OrderPayment";
@@ -7,20 +16,28 @@ import OrderPayment from "../components/OrderPayment";
 export default function OrderCheckoutFlow(props: any) {
   const [tabName, setTabName] = React.useState("Login");
   return (
-    <Box
-      flex="1"
-      shadow="4"
-      flexGrow="1"
-      _light={{
-        bg: "coolGray.100",
-        borderColor: "coolGray.200",
-      }}
-      _dark={{
-        bg: "coolGray.900",
-        borderColor: "coolGray.800",
-      }}
+    <ScrollView
+      h="100vh"
+      bg={useColorModeValue("coolGray.100", "coolGray.900")}
+      nativeID="scrollView"
     >
-      <VStack>
+      <Box
+        flex="1"
+        // shadow="4"
+        // flexGrow="1"
+        _light={{
+          bg: "coolGray.100",
+          borderColor: "coolGray.200",
+        }}
+        _dark={{
+          bg: "coolGray.900",
+          borderColor: "coolGray.800",
+        }}
+        bg="red.300"
+        nativeID="1234"
+        h="100%"
+        // pb="4"
+      >
         <HStack
           flexWrap="wrap"
           pt={{ base: 4 }}
@@ -169,10 +186,12 @@ export default function OrderCheckoutFlow(props: any) {
             </Pressable>
           </HStack>
         </HStack>
-        {tabName == "Login" ? <OrderInit /> : null}
-        {tabName == "Address" ? <OrderAddress /> : null}
-        {tabName == "Payment" ? <OrderPayment /> : null}
-      </VStack>
-    </Box>
+        <Box flex="1" bg="red.100">
+          {tabName == "Login" ? <OrderInit /> : null}
+          {tabName == "Address" ? <OrderAddress /> : null}
+          {tabName == "Payment" ? <OrderPayment /> : null}
+        </Box>
+      </Box>
+    </ScrollView>
   );
 }
