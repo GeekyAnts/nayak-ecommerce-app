@@ -77,15 +77,16 @@ export default class FloatingLabelInput extends Component<any, any> {
           </Animated.Text>
         </Animated.View>
         <Input
-          variant="unstyled"
-          borderBottomWidth={1}
-          borderRadius="none"
-          borderBottomColor={this.state.isFocused ? "#FC2778" : "coolGray.300"}
+          variant="underlined"
+          _focus={{
+            borderBottomColor: "slatePink.400",
+          }}
+          _hover={{
+            borderBottomColor: "slatePink.400",
+          }}
           {...props}
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
-          padding="3"
-          _hover={{ bg: this.props.labelBGColor }}
         />
       </Box>
     );
