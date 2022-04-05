@@ -187,8 +187,13 @@ export default function Payment(props: any) {
             </Button>
           </Box>
         </Box>
-        <Box w={{ lg: "26%" }} shadow={3}>
-          <VStack bg="white" borderWidth="1" borderColor="coolGray.300">
+        <Box w={{ lg: "26%" }}>
+          <VStack
+            bg="white"
+            borderWidth="1"
+            borderColor="coolGray.300"
+            shadow={3}
+          >
             <Bill isPayment />
             <VStack
               py="2"

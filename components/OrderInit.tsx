@@ -126,7 +126,7 @@ export default function Checkout() {
             isRequired
             label="Enter Email-Id Or Phone Number"
             labelBGColor={useColorModeValue("#fff", "#1f2937")}
-            borderRadius="sm"
+            // borderRadius="sm"
             defaultValue={text}
             onChangeText={(txt: any) => setText(txt)}
             _text={{
@@ -186,7 +186,9 @@ export default function Checkout() {
             CONTINUE AS GUEST
           </Button>
         </VStack>
-        <Bill />
+        <Box w={{ lg: "26%" }}>
+          <Bill />
+        </Box>
       </Stack>
     </Box>
   );

@@ -81,9 +81,28 @@ export default class FloatingLabelInput extends Component<any, any> {
           _focus={{
             borderBottomColor: "slatePink.400",
           }}
-          _hover={{
-            borderBottomColor: "slatePink.400",
-          }}
+          // _web={{
+          // _stack={{
+          //   _focus: {
+          //     style: {
+          //       outlineColor: "#FC2778",
+          //       outlineWidth: "1px",
+          //       outlineStyle: "solid",
+          //     },
+          //   },
+          // }}
+          // _stack={{
+          //   _focus: {
+          //     style: {
+          //       outlineWidth: "0",
+          //       boxShadow: "0 1px 0 0 #FC2778",
+          //     },
+          //   },
+          // }}
+          // }}
+          // _hover={{
+          //   borderBottomColor: "slatePink.400",
+          // }}
           {...props}
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}

@@ -44,12 +44,7 @@ function Bill(props: any) {
   );
   const [expandTotal, setExpandToatal] = useState(true);
   return (
-    <Box
-      bg="white"
-      w={{ lg: props.isPayment ? "100%" : "26%", md: "100%" }}
-      shadow={3}
-      mt={{ md: 4, lg: 0, base: 4 }}
-    >
+    <Box bg="white" shadow={3} mt={{ md: 4, lg: 0, base: 4 }}>
       <HStack alignItems="center" justifyContent="space-between" p={4}>
         <Text color="yellowShade.300" fontSize="sm" fontWeight="medium">
           1 Items in your Bag

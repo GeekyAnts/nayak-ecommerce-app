@@ -227,7 +227,9 @@ export default function Address(props: any) {
             </Button>
           </VStack>
         </Box>
-        <Bill />
+        <Box w={{ lg: "26%" }}>
+          <Bill />
+        </Box>
       </Stack>
     </Box>
   );
