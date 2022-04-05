@@ -10,6 +10,7 @@ import {
   Text,
   VStack,
   Stack,
+  Pressable,
 } from "native-base";
 import { MaterialIcons, Octicons } from "@native-base/icons";
 import Bill from "./Bill";
@@ -38,30 +39,30 @@ export default function Payment(props: any) {
             bg="white"
             // borderWidth="1"
             borderColor="coolGray.300"
-            divider={<Divider />}
-            pl="2"
+            divider={<Divider pl="2" />}
             shadow="2"
           >
             {PAYMENT_VENDORS.map((item, index) => {
               return (
-                <Text
-                  key={index}
-                  px="2"
-                  py="3"
-                  fontSize="md"
-                  color={
-                    item == "Credit/Debit Card"
-                      ? "slatePink.400"
-                      : "coolGray.800"
-                  }
-                  fontWeight={
-                    item == "Credit/Debit Card" ? "semibold" : "normal"
-                  }
-                  borderRightWidth={item == "Credit/Debit Card" ? 2 : 0}
-                  borderRightColor="slatePink.400"
-                >
-                  {item}
-                </Text>
+                <Pressable key={index} _hover={{ bg: "blueGray.100" }} pl="2">
+                  <Text
+                    px="2"
+                    py="3"
+                    fontSize="md"
+                    color={
+                      item == "Credit/Debit Card"
+                        ? "slatePink.400"
+                        : "coolGray.800"
+                    }
+                    fontWeight={
+                      item == "Credit/Debit Card" ? "semibold" : "normal"
+                    }
+                    borderRightWidth={item == "Credit/Debit Card" ? 2 : 0}
+                    borderRightColor="slatePink.400"
+                  >
+                    {item}
+                  </Text>
+                </Pressable>
               );
             })}
           </VStack>
@@ -210,19 +211,21 @@ export default function Payment(props: any) {
                 >
                   SHIPPING ADDRESS
                 </Text>
-                <Text
-                  fontSize="sm"
-                  fontWeight="semibold"
-                  _dark={{
-                    color: "coolGray.50",
-                    bg: { base: "coolGray.800", md: "coolGray.900" },
-                  }}
-                  _light={{
-                    color: "slatePink.400",
-                  }}
-                >
-                  CHANGE
-                </Text>
+                <Pressable>
+                  <Text
+                    fontSize="sm"
+                    fontWeight="semibold"
+                    _dark={{
+                      color: "coolGray.50",
+                      bg: { base: "coolGray.800", md: "coolGray.900" },
+                    }}
+                    _light={{
+                      color: "slatePink.400",
+                    }}
+                  >
+                    CHANGE
+                  </Text>
+                </Pressable>
               </HStack>
               <VStack>
                 <Text
