@@ -14,7 +14,7 @@ import OrderAddress from "../components/OrderAddress";
 import OrderPayment from "../components/OrderPayment";
 
 export default function OrderCheckoutFlow(props: any) {
-  const [tabName, setTabName] = React.useState("Payment");
+  const [tabName, setTabName] = React.useState("Login");
   return (
     <ScrollView h="100vh" bg="coolGray.100">
       <Box flex="1" bg="coolGray.100" borderColor="coolGray.200" h="100%">
