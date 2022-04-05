@@ -33,13 +33,14 @@ export default function Payment(props: any) {
         justifyContent="center"
         direction={{ lg: "row" }}
       >
-        <Box w={{ lg: "20%" }} overflow="hidden" shadow="2">
+        <Box w={{ lg: "20%" }} overflow="hidden">
           <VStack
             bg="white"
             // borderWidth="1"
             borderColor="coolGray.300"
             divider={<Divider />}
             pl="2"
+            shadow="2"
           >
             {PAYMENT_VENDORS.map((item, index) => {
               return (
@@ -66,7 +67,7 @@ export default function Payment(props: any) {
           </VStack>
         </Box>
 
-        <Box w={{ lg: "30%" }} shadow="2">
+        <Box w={{ lg: "30%" }}>
           <Box
             px="4"
             mb={{ base: "4", lg: "0" }}
@@ -74,6 +75,7 @@ export default function Payment(props: any) {
             // borderWidth="1"
             borderColor="coolGray.300"
             borderRadius={2}
+            shadow="2"
           >
             <Text
               my="3"
