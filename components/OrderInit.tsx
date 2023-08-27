@@ -158,7 +158,7 @@ export default function Checkout() {
           </Text>
           <Divider></Divider>
           <Text fontSize="xs" my={4} fontWeight="medium">
-            I do not want any more benefits from Nykaa
+            I do not want any more benefits from Nayak
           </Text>
           <Button
             size="lg"
