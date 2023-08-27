@@ -1,4 +1,4 @@
-# Nykaa Checkout Flow on Desktop Web
+# Nayak Ecommerce App Checkout Flow on Desktop Web
 
 ## Stack
 
