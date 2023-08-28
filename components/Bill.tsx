@@ -79,7 +79,7 @@ function Bill(props: any) {
               width={{ lg: "20%", md: "18%", base: "15%" }}
             />
             <VStack space={1} w={{ lg: "80%", md: "82%", base: "85%" }}>
-              <Text>Nykaa SKINRX AM/PM Duo for Acne Free Skin</Text>
+              <Text>Nayak SKINRX AM/PM Duo for Acne Free Skin</Text>
               <Text mb="1">2pcs</Text>
               <Divider />
               <HStack alignItems="center" justifyContent="space-between">
